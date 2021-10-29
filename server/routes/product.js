@@ -41,7 +41,19 @@ router.post('/', (req, res) => { // app.use('/api/produdct')> Axios.post("/api/p
     return res.status(200).json({success: true})
   })
 
+})
 
+
+router.post('/products', (req, res) => {
+    
+  //product collection에 들어있는 모든 상품 정보를 가져오기
+
+  Product.find() //위의 모델을 이용하여 find라는 메소드 사용
+    .populate("writer") // writer라는 사람에 대한 모든 정보를 가져옴
+    .exec((err, productInfo) => {
+      if(err) return res.status(400).json({ success : false, err})
+      return res.status(200).json({success : true , productInfo})
+    })
 
 })
 

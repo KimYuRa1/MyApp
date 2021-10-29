@@ -153,7 +153,7 @@ function UploadProductPage(props){
             </select>
             <br />
             <br />
-            <Button type="submit">
+            <Button htmlType="submit">
                 확인
             </Button>
 
